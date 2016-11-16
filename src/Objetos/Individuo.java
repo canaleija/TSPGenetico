@@ -84,6 +84,8 @@ public class Individuo {
        
         
     }
+
+  
     
     
     

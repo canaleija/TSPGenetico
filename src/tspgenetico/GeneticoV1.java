@@ -48,8 +48,11 @@ public class GeneticoV1 {
             Individuo madre = this.poblacionPrincipal.getMejor();
             Individuo padre = this.poblacionPrincipal.getAleatorio();
             // cruza
-            Individuo hijo = null;
+            Individuo hijo = herramientas.Cruza.cruzaKernelBinario(padre, madre);
             // muta
+            if (0-1<=this.pM){
+             mutamos(hijo);
+            }
             
             // agregamos el ind a la nueva población
             elementosNuevos.add(hijo);
@@ -62,6 +65,11 @@ public class GeneticoV1 {
           
         
         }
+    }
+
+    private Individuo cruzar(Individuo madre, Individuo padre) {
+        // regresar un hijo valido
+        return null;
     }
     
     
