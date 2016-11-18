@@ -73,7 +73,7 @@ public class Individuo {
         this.ciudadInicio = ciudadInicio;
     }
 
-    private void calculaFitness() {
+    public void calculaFitness() {
         // tendria que recorrer el genotipo
         this.fitness = matrizDistancias[this.ciudadInicio][this.genotipo[this.genotipo.length-1]];
         for (int x=0; x< this.genotipo.length-1;x++){

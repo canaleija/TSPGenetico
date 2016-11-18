@@ -32,16 +32,17 @@ public class GeneticoV1 {
         ArrayList<Individuo> aux = new ArrayList<>();
         aux.add(new Individuo(new int[]{0,2,3,1}));
         aux.add(new Individuo(new int[]{0,1,3,2}));
+        aux.add(new Individuo(new int[]{0,3,1,2}));
         aux.add(new Individuo(new int[]{0,3,2,1}));
-        aux.add(new Individuo(new int[]{0,3,2,1}));
-        aux.add(new Individuo(new int[]{0,1,2,3}));
+        aux.add(new Individuo(new int[]{0,2,1,3}));
         
         this.poblacionPrincipal = new Poblacion(aux);
+        ArrayList<Individuo> elementosNuevos;
         
         for (int m = 0; m < this.m;m++){
           // tenemos que garantizar la creación de una
           // población nueva
-          ArrayList<Individuo> elementosNuevos = new ArrayList<>();
+          elementosNuevos = new ArrayList<>();
           for (int n=0; n < this.tamPob;n++){
                        
             // seleccion aleatorio
@@ -49,9 +50,10 @@ public class GeneticoV1 {
             Individuo padre = this.poblacionPrincipal.getAleatorio();
             // cruza
             Individuo hijo = herramientas.Cruza.cruzaKernelBinario(padre, madre);
-            // muta
-            if (0-1<=this.pM){
-             mutamos(hijo);
+            // calcular una probabilidad de muta
+            
+            if (Math.random()<=this.pM){
+             herramientas.Muta.mutaIntercambioPaP(hijo);
             }
             
             // agregamos el ind a la nueva población
@@ -62,8 +64,7 @@ public class GeneticoV1 {
           // nuevos elementos
           
           this.poblacionPrincipal = new Poblacion(elementosNuevos);    
-          
-        
+          System.out.println();
         }
     }
 

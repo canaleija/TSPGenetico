@@ -22,6 +22,7 @@ public class Cruza {
         int g2 [] = new int[kernel.length];
         // generar la cruza
         do{
+           crearKernel(kernel); 
            for(int x=0; x < kernel.length;x++){
              if (kernel[x]==1){
                g1[x]=madre.getGenotipo()[x];
@@ -32,7 +33,7 @@ public class Cruza {
              
              }
            }
-           
+           System.out.println();
         }while(!validaHijos(g1, g2));
         
         Individuo h1 = new Individuo(g1);
@@ -47,8 +48,8 @@ public class Cruza {
     }
     
     public static boolean validarGenotipo (int[] genotipo){
-    for (int x = 1; x < genotipo.length;x++){
-           for (int y = x + 1; y < genotipo.length-1;y++){
+    for (int x = 1; x < genotipo.length-1;x++){
+           for (int y = x + 1; y < genotipo.length;y++){
               if (genotipo[x]==genotipo[y]){
                  return false;
               }
@@ -58,7 +59,7 @@ public class Cruza {
     }
     
     public static boolean validaHijos(int[] genotipo1,int[] genotipo2){
-      return validarGenotipo(genotipo2)&& validarGenotipo(genotipo1);
+      return validarGenotipo(genotipo2)&&validarGenotipo(genotipo1);
     }
 
     private static void crearKernel(int[] kernel) {

@@ -22,8 +22,9 @@ public class TSPGenetico {
         int aux [][]= new int[][]{{0,5,4,6},{5,0,34,100},{4,34,0,11},{6,100,11,0}};
         Individuo.matrizDistancias = aux;
        
-        GeneticoV1 g1 = new GeneticoV1(5, 10, 0.4);
-        g1.evoluciona();
+        GeneticoV1 g1 = new GeneticoV1(5, 100, 0.4);
+        g1.
+                evoluciona();
         
         System.out.println();
         //System.out.println(ruta1.getFitness());
